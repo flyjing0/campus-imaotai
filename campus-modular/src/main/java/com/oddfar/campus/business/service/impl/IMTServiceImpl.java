@@ -184,8 +184,7 @@ public class IMTServiceImpl implements IMTService {
         String logContent = "";
         for (String itemId : items) {
             try {
-                String shopId = iShopService.getShopId(iUser.getShopType(), itemId,
-                        iUser.getProvinceName(), iUser.getCityName(), iUser.getLat(), iUser.getLng());
+                String shopId = iUser.getIshopId();
                 //预约
                 JSONObject json = reservation(iUser, itemId, shopId);
                 logContent += String.format("[预约项目]：%s\n[shopId]：%s\n[结果返回]：%s\n\n", itemId, shopId, json.toString());
